@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { UserContext } from "../context/UserProvider";
-import { Form, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { erroresFirebase } from "../utils/erroresFirebase";
 import { formValidate } from "../utils/formValidate";
@@ -9,7 +9,6 @@ import FormInput from "../components/FormInput";
 import FormError from "../components/FormError";
 
 const Register = () => {
-
 
     const navigate = useNavigate();
     const {registerUser} = useContext(UserContext);
@@ -23,16 +22,15 @@ const Register = () => {
               navigate("/");
                }
            catch (error) {
-                console.log(error);
-                setError("firebase", {
-                    message: erroresFirebase(error.code),
+                const {code, message} = erroresFirebase(error.code);
+                setError(code, {
+                    message,
                 });
             }};
 
   return (
     <>
         <div>Register</div>
-        <FormError error={errors.firebase}/>
         <form onSubmit={handleSubmit(onSubmit)}>
             <FormInput
                type="email" 
@@ -51,7 +49,8 @@ const Register = () => {
                     minLength,
                     maxLength,
                     validate: validateTrim,
-                 })}
+                 },
+                {setValueAs: (value) => value.trim()},)}
             >
             </FormInput>
             <FormError error={errors.password}/>
