@@ -5,8 +5,11 @@ import { useForm } from "react-hook-form";
 import { erroresFirebase } from "../utils/erroresFirebase";
 import { formValidate } from "../utils/formValidate";
 
+
 import FormInput from "../components/FormInput";
 import FormError from "../components/FormError";
+import FormTitle from "../components/FormTitle";
+import Button from "../components/Button";
 
 const Register = () => {
 
@@ -23,25 +26,27 @@ const Register = () => {
               navigate("/");
                }
            catch (error) {
-                console.log(error);
-                setError("firebase", {
+                setError("email", {
                     message: erroresFirebase(error.code),
                 });
             }};
 
   return (
     <>
-        <div>Register</div>
-        <FormError error={errors.firebase}/>
+        <FormTitle text="Registro de Usuarios"/>
         <form onSubmit={handleSubmit(onSubmit)}>
             <FormInput
-               type="email" 
-               placeholder="Ingrese email"
-                {...register("email", {
-                    required,
-                    pattern: patternEmail,
-                })}
-            ></FormInput>
+                type="email" 
+                placeholder="Ingrese email"
+                    {...register("email", {
+                        required,
+                        pattern: patternEmail,
+                    })}
+                label="Ingresa tu correo"
+                id="email-address-icon"
+                error={errors.email}
+            >
+            </FormInput>
             <FormError error={errors.email}/>
             <FormInput
                 type="password" 
@@ -52,6 +57,8 @@ const Register = () => {
                     maxLength,
                     validate: validateTrim,
                  })}
+                label="Ingresa tu password"
+                error={errors.password}
             >
             </FormInput>
             <FormError error={errors.password}/>
@@ -70,10 +77,12 @@ const Register = () => {
                     }},
                     {setValueAs: (value) => value.trim()},
                     )}
+                label="Reingresa tu password"
+                error={errors.repassword}
             >
             </FormInput>
             <FormError error={errors.repassword}/> 
-            <button type="submit">Register</button>
+            <Button text="Registrarse" type="sumbit"/>
         </form>
     </>
   )

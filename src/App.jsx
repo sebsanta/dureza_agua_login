@@ -3,11 +3,13 @@ import Login from "./routes/Login"
 import Home from "./routes/Home"
 import Register from "./routes/Register"
 import Navbar from "./components/Navbar"
+import Footer from "./components/Footer"
 import RequireAuth from "./components/RequireAuth"
 import { useContext } from "react"
 import { UserContext } from "./context/UserProvider"
-
-
+import LayoutContainerForm from "./components/LayoutContainerForm"// src/App.tsx
+import Locaciones from "./routes/Locaciones"
+import MapaLocaciones from "./routes/MapaLocaciones"
 
 const App = () => {
 
@@ -18,21 +20,28 @@ const App = () => {
   } 
 
   return (
-    <> 
-    <Navbar />
-      <h1>APP Aguas</h1>
-      <Routes>
-        <Route path='/' 
-          element={
-             <RequireAuth>
-                <Home />
-            </RequireAuth>
-          }
-        />
-        <Route path='/login' element={<Login />} />
-        <Route path='/register' element={<Register />} />
-      </Routes>
-    </>
+    <div className="app-container">
+      <div>
+      <Navbar />
+      <main className="main-content">
+        <Routes>
+          <Route path='/' 
+            element={
+              <RequireAuth>
+                  <Home />
+              </RequireAuth>
+            }
+          />
+          <Route path="/" element={<LayoutContainerForm />}>
+            <Route path='/login' element={<Login />} />
+            <Route path='/register' element={<Register />} />
+          </Route>
+          <Route path='/locaciones' element={<RequireAuth><Locaciones/> </RequireAuth>} />
+          <Route path='/mapa' element={<RequireAuth><MapaLocaciones/></RequireAuth>} />
+        </Routes>
+      </main>
+    </div>
+  </div>
   );
 };
 

@@ -8,6 +8,9 @@ import { formValidate } from "../utils/formValidate";
 
 import FormError from "../components/FormError";
 import FormInput from "../components/FormInput";
+import FormTitle from "../components/FormTitle";
+import Button from "../components/Button";
+import Footer from "../components/Footer";
 
 const Login = () => {
 
@@ -29,23 +32,26 @@ const Login = () => {
                 });
             }};   
 
-
     return (
+    <div>
       <div>
-        <h1>Login</h1>
+        <FormTitle text="Login"/>
          <FormError error={errors.firebase}/>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <FormInput
+                    label="Ingresa tu correo"
                     type="email" 
                     placeholder="Ingrese email"
                         {...register("email", {
                             required,
                             pattern: patternEmail,
                         })}
+                     error={errors.email}
                 >
                 <FormError error={errors.email}/>
                 </FormInput>
                 <FormInput
+                    label="Ingresa tu password"
                     type="password" 
                     placeholder="Ingrese password" 
                     {...register("password", {
@@ -54,12 +60,14 @@ const Login = () => {
                         maxLength,
                         validate: validateTrim,
                     })}
+                     error={errors.password}
                 >
                 <FormError error={errors.password}/>
                 </FormInput>
-                <button type="submit">Login</button>
+                <Button text="Login"/>
             </form>
         </div>
+    </div>
     );
 }
 
