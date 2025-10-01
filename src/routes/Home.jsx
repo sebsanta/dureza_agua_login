@@ -1,3 +1,5 @@
+import Footer from "../components/Footer";
+
 const Home = () => {
     return (
         <div>
@@ -8,9 +10,9 @@ const Home = () => {
                     ¿Qué estamos investigando actualmente?
                     </h1>
                     <p className="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">
-                    Nos encontramos investigando si el agua que consumimos está en los estándares permitidos 
-                    para el consumo humano y también su respectivo monitoreo en caso de contener elementos que 
-                    hacen que no sea apta ni para el uso humano ni regadíos.
+                    Nos encontramos investigando si el agua que consumimos está en los estándares básicos permitidos 
+                    para el consumo humano y también su respectivo monitoreo en caso de salirse de un determinado rango 
+                    debido que puede contener elementos que hacen que no sea apta ni para el uso humano ni regadíos.
                     </p>
                     <div className="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
                     <a
@@ -71,7 +73,7 @@ const Home = () => {
                     su respectivo valor en PPM, ver si contiene metales pesados o si contiene 
                     compuestos orgánicos. Una vez analizados se llevan a un formulario desarrollado
                     en una App móvil el que registra la toma toma de muestra y georeferencia el 
-                    lugar donde fue tomada la muestra, con fotos, desripción y valores PPM.
+                    lugar, adjuntando fotos, una desripción, región comuna y sus respectivos valores PPM.
                 </p>
                 <a
                     href="#"
@@ -198,7 +200,13 @@ const Home = () => {
                 </div>
                 </div>
             </div>
+
+
+                    <div>
+                    <Footer />
+                  </div>
             </section>
+              
         </div>
     );
 }

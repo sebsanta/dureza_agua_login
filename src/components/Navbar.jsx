@@ -60,6 +60,18 @@ const Navbar = () => {
                 ):(
                     <></>
                 )}
+                    {user? (
+                <li>
+                    <a
+                        href="#"
+                        className="block py-2 px-3 text-gray-300 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                    >
+                        <NavLink to="/grafico">Gráfico</NavLink>
+                </a>
+                </li>
+                ):(
+                    <></>
+                )}
                  {user? (
                 <li>
                     <a
@@ -95,7 +107,7 @@ const Navbar = () => {
                     <li>
                         <a
                             href="#"
-                            className="block py-2 px-3 text-gray-300 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                            className="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"
                         >
                         <button 
                             onClick={handleClickLogout}>Cerrar Sesion

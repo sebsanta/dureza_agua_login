@@ -10,6 +10,8 @@ import { UserContext } from "./context/UserProvider"
 import LayoutContainerForm from "./components/LayoutContainerForm"// src/App.tsx
 import Locaciones from "./routes/Locaciones"
 import MapaLocaciones from "./routes/MapaLocaciones"
+import Grafico from "./routes/Grafico"
+import Graficos from "./routes/Graficos"
 
 const App = () => {
 
@@ -36,8 +38,10 @@ const App = () => {
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />
           </Route>
-          <Route path='/locaciones' element={<RequireAuth><Locaciones/> </RequireAuth>} />
-          <Route path='/mapa' element={<RequireAuth><MapaLocaciones/></RequireAuth>} />
+            <Route path='/locaciones' element={<RequireAuth><Locaciones/> </RequireAuth>} />
+            <Route path='/mapa' element={<RequireAuth><MapaLocaciones/></RequireAuth>} />
+            <Route path='/grafico' element={<RequireAuth><Grafico /></RequireAuth>} />
+            <Route path='/graficos' element={<RequireAuth><Graficos /></RequireAuth>} />
         </Routes>
       </main>
     </div>

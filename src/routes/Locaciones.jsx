@@ -188,11 +188,11 @@ const Locaciones = () => {
     <div className="min-h-screen bg-gray-900 text-white p-6">
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
+           
         <div className="flex items-center space-x-3">
           <Droplets className="text-blue-400 w-8 h-8" />
-          <h1 className="text-2xl font-bold text-blue-400">Registro de Medición de Calidad del Agua </h1>
+          <h1 className="text-3xl font-bold text-blue-400">Registro de Medición de Calidad del Agua </h1>
         </div>
-        
         <div className="flex space-x-4">
           <div className="bg-white text-gray-800 px-4 py-2 rounded-lg">
             Total: {stats.total} registros
@@ -297,11 +297,11 @@ const Locaciones = () => {
               const classification = getClassification(item.ppm);
               return (
                 <tr key={item.id} className="border-b border-gray-700 hover:bg-gray-700/50">
-                  <td className="p-4">{item.region}</td>
-                  <td className="p-4">{item.comuna}</td>
-                  <td className="p-4">{item.direccion}</td>
-                  <td className="p-4 max-w-xs truncate">{item.descripcion}</td>
-                  <td className="p-4">
+                  <td className="p-3">{item.region}</td>
+                  <td className="p-3">{item.comuna}</td>
+                  <td className="p-3">{item.direccion}</td>
+                  <td className="p-3 max-w-xs truncate">{item.descripcion}</td>
+                  <td className="p-3">
                     <div className="flex items-center space-x-2">
                       <span className={`px-3 py-1 rounded-full text-white text-sm font-medium ${classification.color}`}>
                         {item.ppm} PPM
@@ -311,7 +311,7 @@ const Locaciones = () => {
                       </span>
                     </div>
                   </td>
-                  <td className="p-4">{new Date(item.createdAt.seconds * 1000).toLocaleDateString("en-US",{dateStyle:"medium"})}</td>
+                  <td className="p-3">{new Date(item.createdAt.seconds * 1000).toLocaleDateString("en-US",{dateStyle:"medium"})}</td>
                 </tr>
               );
             })}
